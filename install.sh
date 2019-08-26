@@ -14,6 +14,12 @@ echo "Welcome on Firefox Install Script $version"
 
 if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
+#=================================================
+# RETRIEVE ARGUMENTS FROM THE MANIFEST AND VAR
+#=================================================
+
+distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' | sed 's/["]//g' | awk '{print $1}')
+
 install_firefox(){
       
       pushd /usr/local/ || exit
@@ -21,9 +27,9 @@ install_firefox(){
       tar xvjf firefox-*.tar.bz2 &> /dev/null
       sudo rm firefox-*.tar.bz2
       ln -s /usr/local/firefox/firefox /usr/bin/firefox
+      popd || exit
       mv firefox.desktop /usr/share/applications/
       mv firefox.png /usr/share/pixmaps/
-      popd || exit
       }
 
 
@@ -33,5 +39,8 @@ if ! command -v firefox &> /dev/null; then
       yum remove -y firefox* &> /dev/null
 
       install_firefox || exit
-      
+     fi 
 fi      
+
+install_firefox
+echo "Install Firefox ($distribution)"
