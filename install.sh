@@ -4,7 +4,7 @@
 # Author: liberodark
 # License: GNU GPLv3
 
-version="0.0.1"
+version="0.0.3"
 
 echo "Welcome on Firefox Install Script $version"
 
@@ -32,15 +32,13 @@ install_firefox(){
       mv firefox.png /usr/share/pixmaps/
       }
 
+echo "Install Firefox ($distribution)"
 
-if ! command -v firefox &> /dev/null; then
+if command -v firefox &> /dev/null; then
 
     if [[ "$distribution" = CentOS || "$distribution" = CentOS || "$distribution" = Red\ Hat || "$distribution" = Fedora || "$distribution" = Suse || "$distribution" = Oracle ]]; then
       yum remove -y firefox* &> /dev/null
 
       install_firefox || exit
      fi 
-fi      
-
-install_firefox
-echo "Install Firefox ($distribution)"
+fi
