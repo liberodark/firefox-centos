@@ -31,3 +31,5 @@ if ! command -v firefox &> /dev/null; then
       yum remove -y firefox* &> /dev/null
 
       install_firefox || exit
+      
+fi      
