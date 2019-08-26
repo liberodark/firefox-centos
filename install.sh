@@ -20,7 +20,7 @@ if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
 distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' | sed 's/["]//g' | awk '{print $1}')
 
-install_firefox(){
+rhel_firefox(){
       
       pushd /usr/local/ || exit
       wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/68.0.2/linux-x86_64/fr/firefox-68.0.2.tar.bz2
@@ -39,6 +39,6 @@ if command -v firefox &> /dev/null; then
     if [[ "$distribution" = CentOS || "$distribution" = CentOS || "$distribution" = Red\ Hat || "$distribution" = Fedora || "$distribution" = Suse || "$distribution" = Oracle ]]; then
       yum remove -y firefox* &> /dev/null
 
-      install_firefox || exit
+      rhel_firefox || exit
      fi 
 fi
