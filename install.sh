@@ -21,6 +21,7 @@ install_firefox(){
       tar xvjf firefox-*.tar.bz2 &> /dev/null
       sudo rm firefox-*.tar.bz2
       ln -s /usr/local/firefox/firefox /usr/bin/firefox
+      mv firefox.desktop /usr/share/applications/firefox.desktop
       popd || exit
       }
 
