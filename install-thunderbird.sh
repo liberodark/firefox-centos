@@ -35,7 +35,7 @@ rhel_thunderbird(){
       wget https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/${thunderbird_version}/linux-x86_64/${lang}/thunderbird-${thunderbird_version}.tar.bz2
       tar xvjf thunderbird-*.tar.bz2 &> /dev/null
       sudo rm thunderbird-*.tar.bz2
-      ln -s /usr/local/firefox/thunderbird /usr/bin/thunderbird
+      ln -s /usr/local/thunderbird/thunderbird /usr/bin/thunderbird
       popd || exit
       mv thunderbird.desktop /usr/share/applications/
       mv thunderbird.png /usr/share/pixmaps/
