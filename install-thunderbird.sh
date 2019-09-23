@@ -32,7 +32,7 @@ read -r lang
 rhel_thunderbird(){
       
       pushd /usr/local/ || exit
-      wget https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/${thunderbird_version}/linux-x86_64/fr/thunderbird-${thunderbird_version}.tar.bz2
+      wget https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/${thunderbird_version}/linux-x86_64/${lang}/thunderbird-${thunderbird_version}.tar.bz2
       tar xvjf thunderbird-*.tar.bz2 &> /dev/null
       sudo rm thunderbird-*.tar.bz2
       ln -s /usr/local/firefox/thunderbird /usr/bin/thunderbird
@@ -46,7 +46,7 @@ echo "Install Thunderbird ($distribution)"
 if command -v thunderbird &> /dev/null; then
 
     if [[ "$distribution" = CentOS || "$distribution" = CentOS || "$distribution" = Red\ Hat || "$distribution" = Fedora || "$distribution" = Suse || "$distribution" = Oracle ]]; then
-      yum remove -y firefox* &> /dev/null
+      yum remove -y thunderbird* &> /dev/null
 
       rhel_thunderbird || exit
      fi 
