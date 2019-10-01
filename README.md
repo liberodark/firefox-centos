@@ -1,4 +1,4 @@
-# Firefox Installer
+# Mozilla Installer
 
 
 ### How to install :
