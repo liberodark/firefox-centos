@@ -21,7 +21,7 @@ if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 distribution=$(cat /etc/*release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' | sed 's/["]//g' | awk '{print $1}')
 
 firefox_version="71.0a1"
-lang=en-US
+lang=fr
 
 #=================================================
 # ASK
@@ -30,7 +30,7 @@ lang=en-US
 rhel_firefox(){
       
       pushd /usr/local/ || exit
-      wget https://download-installer.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central/firefox-${firefox_version}.${lang}.linux-x86_64.tar.bz2
+      wget https://download-installer.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central-l10n/firefox-${firefox_version}.${lang}.linux-x86_64.tar.bz2
       tar xvjf firefox-*.tar.bz2 &> /dev/null
       sudo rm firefox-*.tar.bz2
       ln -s /usr/local/firefox/firefox /usr/bin/firefox
